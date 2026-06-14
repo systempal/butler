@@ -17,9 +17,7 @@ public class Butler.WebView : WebKit.WebView {
                 Path.build_path (Path.DIR_SEPARATOR_S, Environment.get_user_cache_dir (), Environment.get_prgname ())
             )
         );
-    }
 
-    construct {
         is_terminal = Posix.isatty (Posix.STDIN_FILENO);
 
         var webkit_settings = new WebKit.Settings () {

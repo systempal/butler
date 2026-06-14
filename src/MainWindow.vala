@@ -419,21 +419,6 @@ public class Butler.MainWindow : Adw.ApplicationWindow {
             demo_banner.revealed = false;
             home_revealer.reveal_child = true;
         }
-
-        web_view.evaluate_javascript.begin (
-            "document.querySelector('home-assistant, ha-authorize') !== null",
-            -1, null, null, null,
-            (obj, res) => {
-                try {
-                    var js_result = web_view.evaluate_javascript.end (res);
-                    if (!js_result.to_boolean ()) {
-                        stack.visible_child_name = "not-ha";
-                    }
-                } catch (Error e) {
-                    // Ignore JS errors; leave page visible
-                }
-            }
-        );
     }
 
     private void zoom_in () {
